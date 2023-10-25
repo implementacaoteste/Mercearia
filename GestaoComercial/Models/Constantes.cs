@@ -10,5 +10,10 @@
                 return stringDeConexao;
             }
         }
+
+        public static string Verbose(string name)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

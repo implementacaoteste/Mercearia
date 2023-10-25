@@ -12,6 +12,13 @@ namespace BLL
 
             new UsuarioDAL().Inserir(_usuario);
         }
+        public void Salvar(Usuario _usuario)
+        {
+            if (_usuario.Id == 0)
+                new UsuarioDAL().Inserir(_usuario);
+            else
+                new UsuarioDAL().Alterar(_usuario);
+        }
         public void Alterar(Usuario _usuario)
         {
             new UsuarioDAL().Alterar(_usuario);
@@ -27,6 +34,14 @@ namespace BLL
         public Usuario BuscarPorId(int _id)
         {
             return new UsuarioDAL().BuscarPorId(_id);
+        }
+        public List<Usuario> BuscarPorNome(string _nome)
+        {
+            return new UsuarioDAL().BuscarPorNome(_nome);
+        }
+        public Usuario BuscarPorNomeUsuario(string _nomeUsuario)
+        {
+            return new UsuarioDAL().BuscarPorNomeUsuario(_nomeUsuario);
         }
     }
 }
