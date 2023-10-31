@@ -9,7 +9,6 @@ namespace UIWinFormsApp
         {
             InitializeComponent();
         }
-
         private void buttonBuscar_Click(object sender, EventArgs e)
         {
             try
@@ -38,8 +37,8 @@ namespace UIWinFormsApp
             {
                 frm.ShowDialog();
             }
+            buttonBuscar_Click(sender, e);
         }
-
         private void buttonAlterar_Click(object sender, EventArgs e)
         {
             int id = ((Usuario)bindingSourceUsuario.Current).Id;
@@ -49,7 +48,6 @@ namespace UIWinFormsApp
                 frm.ShowDialog();
             }
         }
-
         private void buttonExcluir_Click(object sender, EventArgs e)
         {
             if (MessageBox.Show("Deseja realmente excluir este registro?",
@@ -60,6 +58,11 @@ namespace UIWinFormsApp
             new UsuarioBLL().Excluir(id);
             bindingSourceUsuario.RemoveCurrent();
             MessageBox.Show("Registro excluído com sucesso!");
+        }
+        private void FormBuscarUsuario_Load(object sender, EventArgs e)
+        {
+            comboBoxBuscarPor.SelectedIndex = comboBoxBuscarPor.Items.Count - 1;
+            buttonBuscar_Click(sender, e);
         }
     }
 }
